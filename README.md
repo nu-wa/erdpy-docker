@@ -17,3 +17,7 @@ Since erdpy/pip cannot be installed as root, I created one user called `erdpy`. 
 #### To deploy a smart contract
 
 `$ docker run -v "LOCAL_FOLDER:/home/erdpy/tmp" -w /home/erdpy/tmp nuwa24/erdpy erdpy contract deploy`
+
+## Issues
+
+If something is broken, please send an issue [here](https://github.com/nu-wa/erdpy-docker).
