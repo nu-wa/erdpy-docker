@@ -10,13 +10,18 @@ Since erdpy/pip cannot be installed as root, I created one user called `erdpy`. 
 
 ## Usage
 
+If the command you're gonna use requires stdin, please use the `-it` argument for docker.
+
+#### To derive a wallet from a 
+`$docker run -v "LOCAL_FOLDER:/tmp" -w /tmp nuwa24/erdpy erdpy --user 1000 wallet derive --mnemonic test.pem`
+
 #### To build a smart contract
 
-`$ docker run -v "LOCAL_FOLDER:/home/erdpy/tmp" -w /home/erdpy/tmp nuwa24/erdpy erdpy contract build`
+`$ docker run -v "LOCAL_FOLDER:/tmp" -w /tmp nuwa24/erdpy erdpy contract build`
 
 #### To deploy a smart contract
 
-`$ docker run -v "LOCAL_FOLDER:/home/erdpy/tmp" -w /home/erdpy/tmp nuwa24/erdpy erdpy contract deploy`
+`$ docker run -v "LOCAL_FOLDER:/tmp" -w /tmp nuwa24/erdpy erdpy contract deploy`
 
 ## Issues
 
