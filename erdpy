@@ -1,32 +1,14 @@
 #!/usr/bin/env sh
 
-OPTIONS=ug
-LONGOPTIONS=user,group
+if [[ $1 == "--user"]]; then
+    uid="$2"
+    shift 2
+fi
 
-ARGS=$(getopt --options=$OPTIONS --longoptions=$LONGOPTIONS --name "$0" -- "$@")
-eval set -- "$ARGS"
-
-uid=100
-gid=101
-
-while true; do
-    case "$1" in
-        -u|--user)
-            uid="$3"
-            shift 3
-            ;;
-        -g|--group)
-            gid="$2"
-            shift 2
-            ;;
-        -*)
-            shift
-            ;;
-        *)
-            break
-            ;;
-    esac
-done
+if [[ $1 == "-u"]]; then
+    uid="$2"
+    shift 2
+fi
 
 usermod -u "$uid" erdpy > /dev/null
 export PATH="/home/erdpy/elrondsdk:$PATH"
