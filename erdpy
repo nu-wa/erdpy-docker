@@ -1,0 +1,34 @@
+#!/usr/bin/env sh
+
+OPTIONS=ug
+LONGOPTIONS=user,group
+
+ARGS=$(getopt --options=$OPTIONS --longoptions=$LONGOPTIONS --name "$0" -- "$@")
+eval set -- "$ARGS"
+
+uid=100
+gid=101
+
+while true; do
+    case "$1" in
+        -u|--user)
+            uid="$3"
+            shift 3
+            ;;
+        -g|--group)
+            gid="$2"
+            shift 2
+            ;;
+        -*)
+            shift
+            ;;
+        *)
+            break
+            ;;
+    esac
+done
+
+usermod -u "$uid" erdpy > /dev/null
+export PATH="/home/erdpy/elrondsdk:$PATH"
+
+su erdpy -s /home/erdpy/elrondsdk/erdpy -- "$@"
