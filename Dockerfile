@@ -1,6 +1,5 @@
-LABEL dog.kys.image.author="contact@kys.dog"
-
 FROM 'alpine'
+LABEL dog.kys.image.author="contact@kys.dog"
 
 RUN apk add --update --no-cache python3 wget gcc libc-dev python3-dev libffi-dev shadow \
     && ln -sf python3 /usr/bin/python \
